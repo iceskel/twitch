@@ -13,7 +13,7 @@ const (
 	STREAMS_BASE_URL  = "https://api.twitch.tv/kraken/streams/"
 )
 
-type StreamsData struct {
+type streamsData struct {
 	Links struct {
 		Channel string `json:"channel"`
 		Self    string `json:"self"`
@@ -131,7 +131,7 @@ func (tw *TwitchApi) UpdateGame(game string) error {
 }
 
 func (tw *TwitchApi) Uptime() (string, error) {
-	var stream *StreamsData
+	var stream *streamsData
 	res, err := http.Get(tw.StreamsURL)
 	if err != nil {
 		return "", err
